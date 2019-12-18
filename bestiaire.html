@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Bestiaire Mountyhall basé sur Mountyzilla</title>
+    <link rel=stylesheet href="css/bestiaire.css">
+	<script src="js/bestiaire-data.js"></script>
+    <script src="js/bestiaire.js"></script>
+</head>
+<body>
+	<div>
+		<label for="selectMonstre">Monstre</label>
+		<select id="selectMonstre"></select>
+		famille : <span id="familleAffichee"></span> ,  
+		niv : <span id="nivAffiche"></span> , 
+		vlc : <span id="vlcAffiche"></span>
+		
+	</div>
+	
+	
+	<div>
+		<label for="selectTemplate">Template</label>
+		<select id="selectTemplate"></select>
+		niv : <span id="nivTemplate"></span> , 
+		vlc : <span id="vlcTemplate"></span>
+	</div>
+	
+	<div>
+		<label for="selectAge">Age</label>
+		<select id="selectAge"></select>
+		famille : +<span id="nivAge"></span> 
+	</div>
+	
+	<div>
+		<label for="inputNumero">Numéro (optionnel)</label>
+		<input id="inputNumero" type="number" step="1">
+	</div>
+	
+	<button id="buttonChercher">chercher</button>
+	
+	<h2>Caractéristiques</h2>
+	<div id="affichageCaracteristiques"></div>
+	
+</body>
+</html>
