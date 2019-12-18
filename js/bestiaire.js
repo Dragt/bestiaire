@@ -32,8 +32,14 @@ function construireListeMonstres() {
 function construireListeTemplates() {
 	gid("selectTemplate").innerHTML = 
 		`<option value="" data-feminin="" data-niv="0" data-vlc="0">Aucun</option>` +
-		templatesMonstres.map(t => 
-		`<option value="${t.nom}" data-feminin="${t.famille}" data-niv="${t.niv}" data-vlc="${t.vlc}">${t.nom}</option>`)
+		templatesMonstres.map(t => {
+			 let options = `<option value="${t.nom}" data-avant="${t.avant}" data-niv="${t.niv}" data-vlc="${t.vlc}">${t.nom}</option>`;
+			 if (t.feminin) {
+				 options += `<option value="${t.feminin}" data-avant="${t.avant}" data-niv="${t.niv}" data-vlc="${t.vlc}">${t.feminin}</option>`;
+			 }
+			 return options;
+		   }
+		)
 		.join("");
 	changerTemplate();
 }
@@ -76,8 +82,9 @@ function chercherMonstre() {
 	const id = gid("inputNumero").value;
 	
 	let criteres = {};
-	criteres.id = (id ? id : "4000001");
-	criteres.nom = nom + (template ? (" " + template) : "") + " [" + age + "]"; 
+	criteres.id = (id ? id : "99999999");
+	const avant = (gid("selectTemplate").selectedOptions[0].dataset.avant === "1");
+	criteres.nom = (template ? ( avant ? (template + " " + nom) : (nom + " " + template)) : nom) + " [" + age + "]"; 
 	// todo : tester avec template devant si rien trouvé... ou avoir liste des templates à mettre devant
 	
 	let formData = new FormData();
