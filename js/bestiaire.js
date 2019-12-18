@@ -53,7 +53,7 @@ function changerMonstre() {
 	const monstreDataset = gid("selectMonstre").selectedOptions[0].dataset;
 	gid("familleAffichee").innerText = monstreDataset.famille;
 	gid("nivAffiche").innerText = monstreDataset.niv;
-	gid("vlcAffiche").innerText = (monstreDataset.vlc === 1 ? "oui" : "non");
+	gid("vlcAffiche").innerText = (monstreDataset.vlc == 1 ? "oui" : "non"); //attention pas ===
 	mettreAjourListeAges();
 }
 
