@@ -1,3 +1,15 @@
-div, button {
+.marged {
 	margin: 1em;
+}
+
+.bordered {
+	border : 1px solid black;
+}
+
+.gras {
+	font-weight: bold;
+}
+
+label {
+	margin : 0 0.2em 0 1em;
 }
