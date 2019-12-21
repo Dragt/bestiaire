@@ -1,5 +1,6 @@
 "use strict";
 
+const URL_BESTIAIRE = "https://dragt.github.io/bestiaire/";
 
 /* ***** Utilitaire ***** */
 
@@ -237,12 +238,12 @@ function mettreAJourLienCopier() {
 		const nom = encodeURIComponent(gid("selectMonstre").value);
 		const template = encodeURIComponent(gid("selectTemplate").value);
 		const age = encodeURIComponent(gid("selectAge").value);	
-		gid("lienCopier").href = window.location.hostname + window.location.pathname +
+		gid("lienCopier").href = URL_BESTIAIRE + //window.location.hostname + window.location.pathname +
 	                         `?monstre=${nom}&template=${template}&age=${age}&numero=${numero}`;	
 	}
 	else {
 		const nomComplet = encodeURIComponent(gid("inputMonstreNomComplet").value);
-		gid("lienCopier").href = window.location.hostname + window.location.pathname +
+		gid("lienCopier").href = URL_BESTIAIRE + //window.location.hostname + window.location.pathname +
 	                         `?monstreComplet=${nomComplet}&numero=${numero}`;
 	}	
 	
