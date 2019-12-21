@@ -7,41 +7,64 @@
     <script src="js/bestiaire.js"></script>
 </head>
 <body>
-	<div>Bestiaire basé sur <a target="_blank" href="https://www.mountyhall.com/Forum/display_topic_threads.php?ForumID=21&TopicID=170785">Mountyzilla</a>
+	<div class="marged">Bestiaire basé sur <a target="_blank" href="https://www.mountyhall.com/Forum/display_topic_threads.php?ForumID=21&TopicID=170785">Mountyzilla</a>
 	</div>
 	
-	<div>
-		<label for="selectMonstre">Monstre</label>
-		<select id="selectMonstre"></select>
-		famille : <span id="familleAffichee"></span> ,  
-		niv : <span id="nivAffiche"></span> , 
-		vlc : <span id="vlcAffiche"></span>
+	<label for="choixRechercheMonstreTemplateAge">Recherche "Monstre + Template + Age"</label>
+	<input type="radio" id="choixRechercheMonstreTemplateAge" name="choixRecherche" value="SEPARE" checked>
+	<label for="choixRechercheMonstreComplet"> Recherche Monstre "Nom Complet"</label>
+	<input type="radio" id="choixRechercheMonstreComplet" name="choixRecherche" value="COMPLET">
+
+	<div class="bordered marged">
+		<div id="zoneSelectMonstreTemplateAge">
+			<div class="marged">
+				<label for="selectMonstre">Monstre</label>
+				<select id="selectMonstre"></select>
+				famille : <span id="familleAffichee" class="gras"></span> ,  
+				niv : <span id="nivAffiche" class="gras"></span> , 
+				vlc : <span id="vlcAffiche" class="gras"></span>
+				
+			</div>
+			
+			
+			<div class="marged">
+				<label for="selectTemplate">Template</label>
+				<select id="selectTemplate"></select>
+				niv : <span id="nivTemplate" class="gras"></span> , 
+				vlc : <span id="vlcTemplate" class="gras"></span>
+			</div>
+			
+			<div class="marged">
+				<label for="selectAge">Age</label>
+				<select id="selectAge"></select>
+				niv : +<span id="nivAge" class="gras"></span> 
+			</div>
+			
+			<div class="marged">
+				<div id="zoneNiveauTotal" class="marged">Niveau total : <span id="valeurNiveauTotal" class="gras"></span></div>
+			</div>
+		</div>
 		
+		<div id="zoneSelectMonstreComplet">
+			<div class="marged">
+				<label for="inputMonstreNomComplet">Nom complet du monstre</label>
+				<input id="inputMonstreNomComplet" type="text" size="50" placeholder="ex: Maître Nécrochore [Vénérable]">
+			</div>
+		</div>
+		
+		<div class="marged">
+			<label for="inputNumero">Numéro (optionnel)</label>
+			<input id="inputNumero" type="number" step="1" placeholder="ex: 3123456">
+		</div>
+		
+		
+		<div class="marged">
+		<button id="buttonChercher" class="marged">chercher </button> <a id="lienCopier" target="_blank" href="#">Copier la recherche dans un nouvel onglet</a>
+		</div>
 	</div>
 	
-	
-	<div>
-		<label for="selectTemplate">Template</label>
-		<select id="selectTemplate"></select>
-		niv : <span id="nivTemplate"></span> , 
-		vlc : <span id="vlcTemplate"></span>
-	</div>
-	
-	<div>
-		<label for="selectAge">Age</label>
-		<select id="selectAge"></select>
-		niv : +<span id="nivAge"></span> 
-	</div>
-	
-	<div>
-		<label for="inputNumero">Numéro (optionnel)</label>
-		<input id="inputNumero" type="number" step="1">
-	</div>
-	
-	<button id="buttonChercher">chercher</button>
-	
-	<h2>Caractéristiques</h2>
-	<div id="affichageCaracteristiques"></div>
+	<h2 class="marged">Caractéristiques</h2>
+	<div id="affichageCaracteristiques" class="marged"></div>
 	
 </body>
 </html>
