@@ -124,6 +124,10 @@ function changerTemplate() {
 	// j'ai fait toute la partie des templates mountypedia en etant fatigué,
 	// pas très bien vérifier ce qui est fait... mais ça semble fonctionner.
 	
+	for (let e of document.querySelectorAll("#infosSup span")) {
+			e.innerText = "";
+		}
+	
 	const valeur = gid("selectTemplate").selectedOptions[0].value;
 	if (valeur.trim() !== "") {
 		const template = templatesMonstres
@@ -134,11 +138,6 @@ function changerTemplate() {
 					document.getElementById(carac).innerText = template[0][carac];
 				}
 			}
-		}
-	}
-	else {
-		for (let e of document.querySelectorAll("#infosSup span")) {
-			e.innerText = "";
 		}
 	}
 }
