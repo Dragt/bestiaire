@@ -1,6 +1,5 @@
 "use strict";
 
-const URL_BESTIAIRE = "https://dragt.github.io/bestiaire/";
 
 /* ***** Utilitaire ***** */
 
@@ -121,6 +120,27 @@ function changerTemplate() {
 	gid("vlcTemplate").innerText = (templateDataset.vlc > 0 ? "oui" : "");
 	mettreAJourNiveauTotal();	
 	mettreAJourLienCopier();
+	
+	// j'ai fait toute la partie des templates mountypedia en etant fatigué,
+	// pas très bien vérifier ce qui est fait... mais ça semble fonctionner.
+	
+	const valeur = gid("selectTemplate").selectedOptions[0].value;
+	if (valeur.trim() !== "") {
+		const template = templatesMonstres
+						 .filter(x => (x.nom === valeur || x.feminin == valeur));
+		if (template.length > 0) {
+			for (let carac of Object.keys(template[0])) {
+				if (document.getElementById(carac)) {
+					document.getElementById(carac).innerText = template[0][carac];
+				}
+			}
+		}
+	}
+	else {
+		for (let e of document.querySelectorAll("#infosSup span")) {
+			e.innerText = "";
+		}
+	}
 }
 
 function changerAge() {
@@ -238,12 +258,12 @@ function mettreAJourLienCopier() {
 		const nom = encodeURIComponent(gid("selectMonstre").value);
 		const template = encodeURIComponent(gid("selectTemplate").value);
 		const age = encodeURIComponent(gid("selectAge").value);	
-		gid("lienCopier").href = URL_BESTIAIRE + //window.location.hostname + window.location.pathname +
+		gid("lienCopier").href = window.location.hostname + window.location.pathname +
 	                         `?monstre=${nom}&template=${template}&age=${age}&numero=${numero}`;	
 	}
 	else {
 		const nomComplet = encodeURIComponent(gid("inputMonstreNomComplet").value);
-		gid("lienCopier").href = URL_BESTIAIRE + //window.location.hostname + window.location.pathname +
+		gid("lienCopier").href = window.location.hostname + window.location.pathname +
 	                         `?monstreComplet=${nomComplet}&numero=${numero}`;
 	}	
 	
